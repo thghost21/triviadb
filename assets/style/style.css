@@ -16,3 +16,7 @@ main {
   justify-content: start;
   align-items: end;
 }
+
+.textShadow {
+  text-shadow: 1px 1px black;
+}
