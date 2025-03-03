@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="assets/style/main.css">
   <link rel="stylesheet" href="assets/style/style.css">
-  <title>triviadb</title>
+  <title>Trivia DB</title>
 </head>
 
 <body data-bs-theme="light">
@@ -17,14 +17,14 @@
   <header>
     <nav class="navbar bg-codeworks text-light gap-2 px-2">
       <img src="./assets/img/logo.png" height="45" alt="" loading="lazy">
-      <div><b>triviadb</b></div>
+      <div><b>Trivia DB</b></div>
       <div class="ms-auto" id="authstate"></div>
       </div>
     </nav>
   </header>
 
   <main>
-
+    <button onclick="app.questionsController.getQuestions()" class="btn btn-primary">Get Questions</button>
 
   </main>
 
