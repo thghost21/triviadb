@@ -33,4 +33,9 @@ export class QuestionsController {
 
   }
 
+  checkAnswer(userGuess) {
+    console.log("you guessed", userGuess);
+    questionsService.checkAnswer(userGuess)
+  }
+
 }

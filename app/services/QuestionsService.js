@@ -20,6 +20,17 @@ class QuestionsService {
 
 
   }
+  checkAnswer(guessedAnswer) {
+    const correctAnswer = AppState.questions.find(answer => answer.allAnswers)
+    console.log(correctAnswer.correctAnswer);
+
+    if (correctAnswer.correctAnswer == guessedAnswer) {
+      window.alert("correct")
+      return
+    }
+
+
+  }
 }
 
 export const questionsService = new QuestionsService()

@@ -5,31 +5,34 @@ export class Question {
     this.category = data.category
     this.question = data.question
     this.correctAnswer = data.correct_answer
-    this.incorrectAnswers = data.incorrect_answers
+    this.allAnswers = data.incorrect_answers
+    this.allAnswers.push(this.correctAnswer)
 
   }
 
-  get allAnswersForButtons() {
-    let allAnswers = []
-    allAnswers.push(this.incorrectAnswers)
-    allAnswers.push(this.correctAnswer)
-    return allAnswers
+
+
+  get answersFormatted() {
+    let answerBlock = ''
+    this.allAnswers.forEach(answer => answerBlock += `<div class="mb-2">
+                                                      <button onclick="app.questionsController.checkAnswer(${answer == this.correctAnswer})" role="button" class="col-6 btn btn-primary">${answer}</button>
+                                                      </div>`,
+    );
+    return answerBlock
   }
 
 
 
 
-  get guessesButtons() {
-    if (this.type == 'boolean') {
-      return `<div class="mb-2">
-                <button role="button" class="col-6 btn btn-primary">${this.allAnswersForButtons}</button>
-              </div>
-              <div class="mb-2">
-                <button role="button" class="col-6 btn btn-primary">${this.incorrectAnswers}</button>
-              </div>`
-    }
-    return
-  }
+  // get guessesButtons() {
+  //   if (this.type == 'boolean') {
+  //     return `<div class="mb-2">
+  //               <button role="button" class="col-6 btn btn-primary">${this.allAnswersForButtons}</button>
+  //             </div>
+  //             `
+  //   }
+  //   return
+  // }
 
 
   get questionCard() {
@@ -44,9 +47,9 @@ export class Question {
               <p>${this.question}</p>
             </div>
             <div class="d-flex justify-content-between px-2 flex-column text-center">
-              ${this.guessesButtons}
+              ${this.answersFormatted}
             </div>
-
+            
           </div>
         </div>
     `
